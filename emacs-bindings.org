@@ -1,0 +1,400 @@
+#+TITLE: Emacs Bindings
+
+* True emacs
+** SPACE
+*** RET
+jump to bookmark
+*** SPACE
+find file in project
+*** *
+search for symbol in proj
+*** ,
+switch ws buffer
+*** <
+switch buffer
+*** .
+find file
+*** x
+popup scratch buffer
+*** X
+org capture
+*** Tab
+workspace
+****
+*** b
+buffer
+*** c
+code
+*** w
+window
+*** i
+insert
+*** h
+help
+*** s
+search
+*** t
+toggle
+*** q
+quit
+*** p
+project
+*** o
+open
+*** n
+notes
+*** m
+localleader
+*** g
+git
+*** f
+- file
+
+** CTRL
+*** ;
+Nothing
+*** ,
+Nothing
+*** .
+evil-repeat-pop
+*** p
+evil-paste-pop (after)
+*** y
+scroll-line-up
+*** f
+evil-scroll-page-down
+*** g
+escape
+*** c
+profile
+**** Tab
+toggle inline images
+**** $
+archive subtree
+**** *
+make heading
+**** +
+table sum
+**** -
+go through list modes
+**** .
+insert timestamp
+**** /
+custom fold
+**** <
+current date
+**** =
+eval formula
+**** >
+goto calendar
+**** ?
+table field info
+**** @
+highlight whole subtree
+**** [
+add file to front of agenda
+**** \
+match sparse tree
+**** ]
+org remove file
+**** ^
+org sort
+**** `
+table edit field
+**** C-*
+make list all headings
+**** C-,
+insert structure template (snippet)
+**** C-a
+attach file or anything really
+**** C-d
+insert deadline timestamp
+**** C-e
+export
+**** C-j
+select heading and goto
+**** C-l
+insert link
+**** C-o
+open link at point
+**** C-q
+set tags
+**** C-s
+schedule task
+**** C-t
+make todo
+**** C-u
+jump to parent heading
+**** C-w
+refile subtree (move to different point)
+**** C-y
+evaluate time range
+**** C-z
+add note to heaing
+**** C-M-l
+insert link
+**** C-S-l
+remove link
+**** M-b
+previous code block
+**** M-f
+next code block
+**** M-l
+insert last stored link
+**** M-w
+refile copy (copy to different poin t)
+**** C-Tab
+insert tab
+**** " g
+plot
+**** &
+yasnippet
+**** C-v
+org-babel (code evaluation)
+
+*** r
+redo
+*** l
+recenter-top-bottom
+*** /
+undo
+*** @
+mark region (select)
+*** a
+begining of line
+*** o
+jump back through links and files
+*** e
+scroll line down (view)
+*** u
+scroll up (cursor)
+*** i
+tab action
+*** d
+scroll down (cursor)
+*** h
+help
+*** t
+new workspace
+*** n
+paste before
+*** s
+isearch forward
+*** -
+text scale decrease
+*** \
+toggle multilingual input
+*** '
+org agenda cycle files
+*** q
+read and insert single char
+*** j
+jump to previous heading
+*** k
+jump to next heading
+*** x
+profile
+****
+*** b
+scroll page up
+*** m
+dwim
+*** w
+profile window
+****
+*** v
+visual block
+*** z
+emacs state
+** CTRL Shift
+*** ;
+*** ,
+*** .
+*** p
+paste
+*** y
+scroll line up
+*** f
+toggle frame fullscreen
+*** g
+escape
+*** c
+profile
+****
+*** r
+redo
+*** l
+shift todo state right
+*** /
+*** @
+switch to prev buffer
+*** a
+begining of line
+*** o
+*** e
+*** u
+*** i
+*** d
+*** h
+*** t
+*** n
+*** s
+*** -
+*** \
+*** '
+*** q
+*** j
+*** k
+*** x
+*** b
+*** m
+*** w
+*** v
+*** z
+** META
+*** ;
+comment dwim
+*** ,
+jump backwards
+*** .
+repeat command
+*** p
+*** y
+paste
+*** f
+forward word
+*** g
+profile gotos
+****
+*** c
+capitalize Word
+*** r
+move cursor top middle bottom
+*** l
+move heading demote
+*** /
+expand abbreviation
+*** @
+mark word (select)
+*** a
+backward sentence
+*** o
+set face
+*** e
+forward sentence
+*** u
+upcase word
+*** i
+insert tabs/spaces to next tab col
+*** d
+kill word
+*** h
+promote heading
+*** t
+switch this and prev word
+*** n
+Nothing
+*** s
+profile isearch
+****
+*** -
+negative argument
+*** \
+delete tabs and spaces around cursor
+*** '
+mark abbreviation start
+*** q
+fill paragraph
+*** j
+move paragraph down
+*** k
+move paragraph up
+*** x
+commands
+*** b
+jump to previous position
+*** m
+beggining of line
+*** w
+save file as if selected was killed but don't kill it
+*** v
+srcoll up
+*** z
+kill to char
+*** (
+insert parentheses or wrap selection in parens
+*** =
+count words region
+*** )
+break line in parens
+*** %
+query replace
+*** 1-9
+switch workspaces
+*** `
+command navigation easy
+** META Shift
+*** ;
+*** ,
+*** .
+*** p
+*** y
+paste
+*** f
+same
+*** g
+same
+*** c
+same
+*** r
+same
+*** l
+demote subtree
+*** /
+list references
+*** @
+join line to previous
+*** a
+same
+*** o
+same
+*** e
+same
+*** u
+same
+*** i
+same
+*** d
+same
+*** h
+promote subtree
+*** t
+switch this and next word
+*** n
+nothing
+*** s
+same
+*** -
+redo
+*** \
+one time shell input
+*** '
+nothing
+*** q
+same
+*** j
+shift line down
+*** k
+shift line up
+*** x
+same
+*** b
+same
+*** m
+same
+*** w
+same
+*** v
+same
+*** z
+same

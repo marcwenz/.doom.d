@@ -1,0 +1,42 @@
+#+TITLE: Installed Packages
+
+* Packages in init.el
+** company
+*** company
+** ivy
+** doom
+** doom-dashboard
+** hl-todo
+** modeline
+** ophints
+** popup
+** treemacs
+** vc-gutter
+** vi-tilde-fringe
+** workspaces
+** evil
+** file-templates
+** fold
+** format
+** snippets
+** dired
+** electric
+** undo
+** vc
+** vterm
+** syntax
+** lookup
+** lsp
+** magit
+** pdf
+** rgb
+** cc
+** emacs-lisp
+** latex
+** markdown
+** org
+** python
+** rust
+** sh
+** mu4e
+** default?
