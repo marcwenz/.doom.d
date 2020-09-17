@@ -7,3 +7,9 @@
 (package! color-theme-modern)
 
 (package! typit)
+
+(package! org-mime)
+
+(package! calfw)
+
+(package! calfw-org)
