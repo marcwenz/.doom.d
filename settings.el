@@ -16,14 +16,14 @@
 (add-to-list 'load-path emacs-dir)
 (require 'latex-input)
 
+
+
 ;; (load-theme 'cobalt t t)
 ;; (enable-theme 'cobalt)
-(setq doom-theme 'doom-city-lights)
+(setq doom-theme 'doom-oceanic-next)
 
 (setq doom-font (font-spec :family "Source Code Pro" :size 16 :weight 'light)
       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-
-(set-face-foreground 'font-lock-comment-face "light pink")
 
  ;; Set transparency of emacs
  (defun transparency (value)
@@ -69,6 +69,9 @@
       :gn "<s-down>" 'org-timestamp-down
       :gn "<s-left>" 'org-timestamp-down-day
       :gn "<s-right>" 'org-timestamp-up-day)
+
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "chromium")
 
 (defun check-cell ()
   (interactive)
@@ -148,15 +151,9 @@
    ;; I want to see the whole file
    org-noter-hide-other nil
    org-noter-hide-other 't
-   org-noter-doc-split-fraction '(0.3 . 0.3)
+   org-noter-doc-split-fraction '(0.4 . 0.4)
    )
   )
-
-(map! :map pdf-view-mode-map
-      :gn "i" #'org-noter-insert-note
-      :gn "q" #'nil
-      :gn "n" #'pdf-view-next-page
-      :gn "p" #'pdf-view-previous-page)
 
 (map! :localleader :map org-mode-map "n" 'nil)
 
@@ -313,12 +310,33 @@
 (require 'calfw)
 (require 'calfw-org)
 (setq cfw:org-overwrite-default-keybinding t)
-(setq cfw:org-agenda-schedule-args '(:timestamp))
+;; (setq cfw:org-agenda-schedule-args '(:timestamp))
+
+(map! :leader
+      :desc "Open org calendar view" "oc" #'cfw:open-org-calendar)
 
 (use-package! pdf-tools
     :config
     (pdf-tools-install)
     (setq-default pdf-view-display-size 'fit-height))
+
+(setq pdf-view-resize-factor 1.1)
+
+(defun mrw:no-center ()
+  (centered-window-mode nil)
+)
+(add-hook 'pdf-view-mode-hook 'mrw:no-center)
+
+(map! :map pdf-view-mode-map
+      ;; :gn "i" #'org-noter-insert-note
+      :gn "q" #'nil
+      :gn "n" #'pdf-view-next-page
+      :gn "p" #'pdf-view-previous-page
+      :gv "i" #'pdf-annot-add-highlight-markup-annotation
+      :gn "t" #'pdf-annot-add-text-annotation
+      :gv "e" #'pdf-annot-add-underline-markup-annotation
+      :gv "s" #'pdf-annot-add-squiggly-markup-annotation
+      :gn "D" #'pdf-annot-delete)
 
 (map! :map dired-mode-map
       [remap dired-find-file] 'dired-find-alternate-file

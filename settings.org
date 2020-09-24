@@ -66,13 +66,18 @@ LaTeX input method
 (require 'latex-input)
 #+END_SRC
 
+** Keymap
+#+BEGIN_SRC emacs-lisp
+
+
+#+END_SRC
 * Themes
 ** Set theme
 
 #+BEGIN_SRC emacs-lisp
 ;; (load-theme 'cobalt t t)
 ;; (enable-theme 'cobalt)
-(setq doom-theme 'doom-city-lights)
+(setq doom-theme 'doom-oceanic-next)
 #+END_SRC
 
 ** Font stuff
@@ -81,7 +86,6 @@ LaTeX input method
 (setq doom-font (font-spec :family "Source Code Pro" :size 16 :weight 'light)
       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(set-face-foreground 'font-lock-comment-face "light pink")
 #+END_SRC
 
 ** Opacity
@@ -136,6 +140,8 @@ LaTeX input method
       :gn "<s-left>" 'org-timestamp-down-day
       :gn "<s-right>" 'org-timestamp-up-day)
 
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "chromium")
 #+END_SRC
 *** Insert checkboxes in table
 #+BEGIN_SRC emacs-lisp
@@ -233,19 +239,13 @@ LaTeX input method
    ;; I want to see the whole file
    org-noter-hide-other nil
    org-noter-hide-other 't
-   org-noter-doc-split-fraction '(0.3 . 0.3)
+   org-noter-doc-split-fraction '(0.4 . 0.4)
    )
   )
 #+END_SRC
 
 *** Shortcut definitions
 #+BEGIN_SRC emacs-lisp
-(map! :map pdf-view-mode-map
-      :gn "i" #'org-noter-insert-note
-      :gn "q" #'nil
-      :gn "n" #'pdf-view-next-page
-      :gn "p" #'pdf-view-previous-page)
-
 (map! :localleader :map org-mode-map "n" 'nil)
 
 (map! :localleader
@@ -262,6 +262,7 @@ LaTeX input method
 #+BEGIN_SRC emacs-lisp
 (use-package! org-pdftools
   :hook (org-load . org-pdftools-setup-link))
+
 #+END_SRC
 
 ** org-ref
@@ -426,15 +427,36 @@ LaTeX input method
 (require 'calfw)
 (require 'calfw-org)
 (setq cfw:org-overwrite-default-keybinding t)
-(setq cfw:org-agenda-schedule-args '(:timestamp))
+;; (setq cfw:org-agenda-schedule-args '(:timestamp))
+
+(map! :leader
+      :desc "Open org calendar view" "oc" #'cfw:open-org-calendar)
 #+END_SRC
-* Pdf-tools
+* Pdf-view
 
 #+BEGIN_SRC emacs-lisp
 (use-package! pdf-tools
     :config
     (pdf-tools-install)
     (setq-default pdf-view-display-size 'fit-height))
+
+(setq pdf-view-resize-factor 1.1)
+
+(defun mrw:no-center ()
+  (centered-window-mode nil)
+)
+(add-hook 'pdf-view-mode-hook 'mrw:no-center)
+
+(map! :map pdf-view-mode-map
+      ;; :gn "i" #'org-noter-insert-note
+      :gn "q" #'nil
+      :gn "n" #'pdf-view-next-page
+      :gn "p" #'pdf-view-previous-page
+      :gv "i" #'pdf-annot-add-highlight-markup-annotation
+      :gn "t" #'pdf-annot-add-text-annotation
+      :gv "e" #'pdf-annot-add-underline-markup-annotation
+      :gv "s" #'pdf-annot-add-squiggly-markup-annotation
+      :gn "D" #'pdf-annot-delete)
 #+END_SRC
 
 * Dired
