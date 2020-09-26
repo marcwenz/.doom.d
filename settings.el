@@ -22,7 +22,7 @@
 ;; (enable-theme 'cobalt)
 (setq doom-theme 'doom-oceanic-next)
 
-(setq doom-font (font-spec :family "Source Code Pro" :size 16 :weight 'light)
+(setq doom-font (font-spec :family "Source Code Pro" :size 16 :weight 'normal)
       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
  ;; Set transparency of emacs
