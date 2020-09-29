@@ -310,10 +310,18 @@
 (require 'calfw)
 (require 'calfw-org)
 (setq cfw:org-overwrite-default-keybinding t)
+(setq cfw:display-calendar-holidays nil)
 ;; (setq cfw:org-agenda-schedule-args '(:timestamp))
 
 (map! :leader
       :desc "Open org calendar view" "oc" #'cfw:open-org-calendar)
+
+(map! :map cfw:org-custom-map
+      :gn "n" #'cfw:org-goto-date
+      :gn "SPC" #'nil
+      :gn "p" #'org-capture
+      :gn "j" #'cfw:navi-next-week-command
+      :gn "k" #'cfw:navi-previous-week-command)
 
 (use-package! pdf-tools
     :config

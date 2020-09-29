@@ -13,3 +13,5 @@
 (package! calfw)
 
 (package! calfw-org)
+
+(package! org-pdfview)
