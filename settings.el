@@ -70,6 +70,11 @@
       :gn "<s-left>" 'org-timestamp-down-day
       :gn "<s-right>" 'org-timestamp-up-day)
 
+
+(add-hook 'org-mode-hook
+      (lambda ()
+         (add-hook 'after-save-hook 'org-preview-latex-fragment nil 'make-it-local)))
+
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium")
 
