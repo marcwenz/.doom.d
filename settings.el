@@ -1,7 +1,7 @@
 (setq user-full-name "Marc Wenzlawski"
       user-mail-address "marc.wenzlawski@gmail.com")
 
-;; (add-hook! 'text-mode-hook 'auto-fill-mode)
+(add-hook! 'text-mode-hook 'auto-fill-mode)
 (setq inhibit-compacting-font-caches t)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")

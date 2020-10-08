@@ -32,7 +32,7 @@
 #+END_SRC
 * General Emacs setup
 #+BEGIN_SRC emacs-lisp
-;; (add-hook! 'text-mode-hook 'auto-fill-mode)
+(add-hook! 'text-mode-hook 'auto-fill-mode)
 (setq inhibit-compacting-font-caches t)
 
 #+END_SRC
@@ -271,6 +271,11 @@ LaTeX input method
 #+END_SRC
 
 ** org-ref
+** org-latex
+#+BEGIN_SRC emacs-lisp
+(setq org-latex-pdf-process (list
+   "latexmk -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f"))
+#+END_SRC
 ** org-pandoc
 ** org-agenda
 ** org-roam
